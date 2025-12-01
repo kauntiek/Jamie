@@ -1,0 +1,2034 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Executive Up-Boarding Plan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #f8f9fa;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px;
+            border-bottom: 4px solid #f39c12;
+        }
+        
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.95;
+            margin-bottom: 20px;
+        }
+        
+        .header-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .header-info-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .header-info-label {
+            font-size: 0.85em;
+            opacity: 0.8;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .header-info-value {
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+        
+        .nav-tabs {
+            background: #34495e;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-tab {
+            flex: 1;
+            min-width: 120px;
+            padding: 15px 20px;
+            color: white;
+            text-align: center;
+            cursor: pointer;
+            border-right: 1px solid rgba(255,255,255,0.1);
+            transition: background 0.3s;
+            font-weight: 500;
+        }
+        
+        .nav-tab:hover {
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .nav-tab.active {
+            background: #f39c12;
+            border-bottom: 3px solid #e67e22;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        
+        .section.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h2 {
+            color: #1e3c72;
+            font-size: 1.8em;
+            margin: 30px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #f39c12;
+        }
+        
+        h3 {
+            color: #2c3e50;
+            font-size: 1.4em;
+            margin: 25px 0 15px 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        h3::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: #f39c12;
+            margin-right: 12px;
+        }
+        
+        h4 {
+            color: #34495e;
+            font-size: 1.1em;
+            margin: 20px 0 10px 0;
+            font-weight: 600;
+        }
+        
+        .phase-banner {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .phase-banner h2 {
+            color: white;
+            border: none;
+            margin: 0 0 10px 0;
+        }
+        
+        .phase-goal {
+            font-size: 1.05em;
+            opacity: 0.95;
+        }
+        
+        .checklist {
+            background: #f8f9fa;
+            border-left: 4px solid #f39c12;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 12px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+        
+        .checklist-item input[type="checkbox"] {
+            margin-right: 15px;
+            margin-top: 4px;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        
+        .checklist-item label {
+            cursor: pointer;
+            flex: 1;
+            font-size: 1.05em;
+        }
+        
+        .checklist-item.completed label {
+            text-decoration: line-through;
+            color: #95a5a6;
+        }
+        
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196F3;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .info-box.warning {
+            background: #fff3e0;
+            border-left-color: #ff9800;
+        }
+        
+        .info-box.success {
+            background: #e8f5e9;
+            border-left-color: #4caf50;
+        }
+        
+        .info-box.important {
+            background: #fce4ec;
+            border-left-color: #e91e63;
+        }
+        
+        .info-box-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #1e3c72;
+            font-size: 1.1em;
+        }
+        
+        .card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .card-header {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #1e3c72;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f39c12;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+            margin: 30px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: #f39c12;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-bottom: 30px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -35px;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #f39c12;
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px #f39c12;
+        }
+        
+        .timeline-item.completed::before {
+            background: #4caf50;
+            box-shadow: 0 0 0 2px #4caf50;
+        }
+        
+        .timeline-date {
+            font-weight: 600;
+            color: #1e3c72;
+            margin-bottom: 5px;
+        }
+        
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .metric-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .metric-value {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+        
+        .metric-label {
+            font-size: 1em;
+            opacity: 0.9;
+        }
+        
+        ul, ol {
+            margin: 15px 0 15px 30px;
+        }
+        
+        li {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+        
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #f39c12;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+            margin: 10px 5px;
+        }
+        
+        .button:hover {
+            background: #e67e22;
+        }
+        
+        .button.secondary {
+            background: #34495e;
+        }
+        
+        .button.secondary:hover {
+            background: #2c3e50;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background: #e0e0e0;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #f39c12 0%, #e67e22 100%);
+            transition: width 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .strength-badge {
+            display: inline-block;
+            background: #4caf50;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin: 5px;
+            font-weight: 500;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #e0e0e0;
+        }
+        
+        th {
+            background: #1e3c72;
+            color: white;
+            font-weight: 600;
+        }
+        
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .footer {
+            background: #34495e;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        @media print {
+            .nav-tabs, .button { display: none; }
+            .section { display: block !important; page-break-after: always; }
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 { font-size: 1.5em; }
+            .nav-tab { font-size: 0.85em; padding: 12px 10px; }
+            .content { padding: 20px; }
+            .grid-2 { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected section
+            const selectedSection = document.getElementById(sectionId);
+            if (selectedSection) {
+                selectedSection.classList.add('active');
+            }
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+        
+        // Handle checkbox changes
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('.checklist-item input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const item = this.closest('.checklist-item');
+                    if (this.checked) {
+                        item.classList.add('completed');
+                    } else {
+                        item.classList.remove('completed');
+                    }
+                });
+            });
+        });
+    </script>
+    <div class="container">
+        <div class="header">
+            <h1>Executive Up-Boarding Plan</h1>
+            <div class="subtitle">President, Employee Benefits - C-Suite Transition Strategy</div>
+            
+            <div class="header-info">
+                <div class="header-info-item">
+                    <div class="header-info-label">Executive</div>
+                    <div class="header-info-value">Jamie</div>
+                </div>
+                <div class="header-info-item">
+                    <div class="header-info-label">Position</div>
+                    <div class="header-info-value">President, Employee Benefits</div>
+                </div>
+                <div class="header-info-item">
+                    <div class="header-info-label">Organization</div>
+                    <div class="header-info-value">Hylant</div>
+                </div>
+                <div class="header-info-item">
+                    <div class="header-info-label">Transition Period</div>
+                    <div class="header-info-value">180 Days</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="nav-tabs">
+            <div class="nav-tab active" onclick="showSection('overview')">Overview</div>
+            <div class="nav-tab" onclick="showSection('pre-start')">Pre-Start</div>
+            <div class="nav-tab" onclick="showSection('phase1')">Days 1-30</div>
+            <div class="nav-tab" onclick="showSection('phase2')">Days 31-60</div>
+            <div class="nav-tab" onclick="showSection('phase3')">Days 61-90</div>
+            <div class="nav-tab" onclick="showSection('phase4')">Days 91-180</div>
+            <div class="nav-tab" onclick="showSection('metrics')">Success Metrics</div>
+        </div>
+        
+        <div class="content">
+            <!-- OVERVIEW SECTION -->
+            <div id="overview" class="section active">
+                <h2>Executive Summary</h2>
+                
+                <div class="info-box important">
+                    <div class="info-box-title">🎯 Plan Purpose</div>
+                    This comprehensive up-boarding plan guides Jamie's transition from Vice President to President and C-Suite member at Hylant. Unlike traditional onboarding, this up-boarding approach addresses the unique challenges of internal promotion to executive leadership.
+                </div>
+                
+                <h3>Your Foundation Strengths</h3>
+                
+                <div class="grid-2">
+                    <div class="card">
+                        <div class="card-header">Professional Experience</div>
+                        <span class="strength-badge">8+ Years Benefits Leadership</span>
+                        <span class="strength-badge">Chief Talent Officer</span>
+                        <span class="strength-badge">VP at Huntington</span>
+                        <span class="strength-badge">Multiple Board Roles</span>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">Recognition & Credentials</div>
+                        <span class="strength-badge">Top 100 Innovator 2024</span>
+                        <span class="strength-badge">Service Heart Award</span>
+                        <span class="strength-badge">Masters in Healthcare Admin</span>
+                        <span class="strength-badge">Consulting Practice Owner</span>
+                    </div>
+                </div>
+                
+                <h3>Key Transition Challenges</h3>
+                
+                <div class="checklist">
+                    <div class="checklist-item">
+                        <input type="checkbox" id="challenge1">
+                        <label for="challenge1"><strong>Relationship Recalibration:</strong> Managing shifted dynamics with former peers and colleagues</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="challenge2">
+                        <label for="challenge2"><strong>Strategic vs. Operational:</strong> Shifting from execution to strategic leadership and direction-setting</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="challenge3">
+                        <label for="challenge3"><strong>C-Suite Credibility:</strong> Establishing presence and influence at executive leadership level</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="challenge4">
+                        <label for="challenge4"><strong>Expanded Scope:</strong> Managing enterprise-level responsibility beyond divisional focus</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="challenge5">
+                        <label for="challenge5"><strong>Cross-Functional Influence:</strong> Building authority and impact across organizational boundaries</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="challenge6">
+                        <label for="challenge6"><strong>Identity Shift:</strong> Psychological transition to executive leader identity</label>
+                    </div>
+                </div>
+                
+                <h3>Transition Timeline Overview</h3>
+                
+                <div class="grid-2">
+                    <div class="metric-card">
+                        <div class="metric-label">Total Transition Period</div>
+                        <div class="metric-value">180</div>
+                        <div class="metric-label">Days (6 Months)</div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-label">Key Milestones</div>
+                        <div class="metric-value">4</div>
+                        <div class="metric-label">Major Phases</div>
+                    </div>
+                </div>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">Days 1-30: Discovery & Foundation</div>
+                        <div>Listen, learn, assess organizational dynamics, build relationship foundation</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Days 31-60: Strategic Vision & Positioning</div>
+                        <div>Develop strategic vision, establish leadership presence, identify quick wins</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Days 61-90: Execution & Influence</div>
+                        <div>Launch initiatives, build cross-functional influence, demonstrate impact</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Days 91-180: Strategic Impact & Optimization</div>
+                        <div>Drive transformation, optimize operations, establish long-term positioning</div>
+                    </div>
+                </div>
+                
+                <div class="info-box success">
+                    <div class="info-box-title">✓ Core Principle</div>
+                    <strong>Listen First, Act Second.</strong> Despite pressure to demonstrate immediate impact, the most successful executive transitions begin with deep listening, learning, and diagnosis before major action. Your first 30 days prioritize understanding over action.
+                </div>
+            </div>
+            
+            <!-- PRE-START SECTION -->
+            <div id="pre-start" class="section">
+                <div class="phase-banner">
+                    <h2>Pre-Day 1: Preparation Phase</h2>
+                    <div class="phase-goal">Strategic preparation before your official start date</div>
+                </div>
+                
+                <h3>Clarity Conversations with CEO</h3>
+                
+                <div class="card">
+                    <div class="card-header">Schedule: 90-120 Minute Strategic Alignment Session</div>
+                    
+                    <h4>Role Clarity Discussion</h4>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-6">
+                            <label for="p1-6">Map geographic, functional, or client-based divisions within organization</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">Days 3-5: CEO and C-Suite Integration</div>
+                    
+                    <h4>CEO Alignment Session (90-120 minutes)</h4>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-7">
+                            <label for="p1-7">Review understanding of role expectations and strategic priorities</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-8">
+                            <label for="p1-8">Discuss 30-60-90 day plan approach</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-9">
+                            <label for="p1-9">Establish communication rhythm (weekly 1:1s recommended)</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-10">
+                            <label for="p1-10">Understand CEO's leadership style and preferences</label>
+                        </div>
+                    </div>
+                    
+                    <h4>C-Suite Peer Meetings (60 minutes each)</h4>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-11">
+                            <label for="p1-11"><strong>CFO:</strong> Financial performance, budget process, ROI frameworks</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-12">
+                            <label for="p1-12"><strong>COO:</strong> Operational integration, process efficiency, service delivery</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-13">
+                            <label for="p1-13"><strong>CMO:</strong> Market positioning, brand strategy, go-to-market approach</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-14">
+                            <label for="p1-14"><strong>CTO/CIO:</strong> Technology roadmap, systems integration, data strategy</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-15">
+                            <label for="p1-15"><strong>CHRO:</strong> Talent strategy, culture, engagement, succession planning</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-16">
+                            <label for="p1-16"><strong>Other Division Presidents:</strong> Client relationships, cross-selling opportunities</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Week 2: Direct Reports & Leadership Team Assessment</h3>
+                
+                <div class="card">
+                    <div class="card-header">Listening Tour with Direct Reports (90 minutes each)</div>
+                    <div class="info-box">
+                        <div class="info-box-title">📋 Meeting Agenda Template</div>
+                        <ol>
+                            <li>Personal Connection (15 min): Career journey, motivations, interests</li>
+                            <li>Role & Responsibilities (20 min): Current role, stakeholders, challenges</li>
+                            <li>Business Perspective (25 min): Opportunities, threats, competitive position</li>
+                            <li>Team Dynamics (20 min): Culture, collaboration, capability gaps</li>
+                            <li>Expectations (10 min): Support needed, communication preferences</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-17">
+                            <label for="p1-17">Schedule and complete 1:1 with Direct Report #1</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-18">
+                            <label for="p1-18">Schedule and complete 1:1 with Direct Report #2</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-19">
+                            <label for="p1-19">Schedule and complete 1:1 with Direct Report #3</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-20">
+                            <label for="p1-20">Schedule and complete 1:1 with Direct Report #4</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-21">
+                            <label for="p1-21">Create profile for each direct report (strengths, performance, retention risk)</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-22">
+                            <label for="p1-22">Complete Leadership Team Assessment Matrix</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Week 3: Extended Organization & Cross-Functional Discovery</h3>
+                
+                <div class="card">
+                    <div class="card-header">Skip-Level Meetings (60 minutes each)</div>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-23">
+                            <label for="p1-23">Select 8-10 diverse employees (geography, function, tenure, demographics)</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-24">
+                            <label for="p1-24">Complete skip-level meetings and document insights</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-25">
+                            <label for="p1-25">Communicate intent to direct reports (transparency about process)</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">Cross-Functional Stakeholder Meetings</div>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-26">
+                            <label for="p1-26"><strong>Sales Leadership:</strong> Client needs, competitive wins/losses, what we do well/poorly</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-27">
+                            <label for="p1-27"><strong>Client Service:</strong> Top complaints/compliments, delivery gaps, client value perception</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-28">
+                            <label for="p1-28"><strong>Operations:</strong> Process bottlenecks, efficiency opportunities, system limitations</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-29">
+                            <label for="p1-29"><strong>Finance:</strong> Deep dive on P&L, budget process, key metrics</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-30">
+                            <label for="p1-30"><strong>Legal/Compliance:</strong> Regulatory landscape, risk areas, compliance infrastructure</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-31">
+                            <label for="p1-31"><strong>HR:</strong> Talent pipeline, retention data, engagement surveys, compensation philosophy</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-32">
+                            <label for="p1-32"><strong>Technology:</strong> Systems architecture, roadmap, integration challenges, data capabilities</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Week 4: Client & Market Intelligence</h3>
+                
+                <div class="card">
+                    <div class="card-header">Client Listening Tour</div>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-33">
+                            <label for="p1-33">Select 5-8 strategic clients (top revenue, longest relationships, recent wins, at-risk)</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-34">
+                            <label for="p1-34">Complete client conversations and document unmet needs</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-35">
+                            <label for="p1-35">Identify service delivery gaps and innovation opportunities</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">Industry & Competitive Intelligence</div>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-36">
+                            <label for="p1-36">Review analyst reports on employee benefits trends</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-37">
+                            <label for="p1-37">Attend industry webinar or conference</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-38">
+                            <label for="p1-38">Connect with 2-3 thought leaders or consultants in the space</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-39">
+                            <label for="p1-39">Review competitor positioning and thought leadership</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-40">
+                            <label for="p1-40">Subscribe to key industry publications and newsletters</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>End of Week 4: 30-Day Synthesis</h3>
+                
+                <div class="card">
+                    <div class="card-header">Comprehensive Situation Assessment</div>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-41">
+                            <label for="p1-41">Document Organizational Strengths (what's working well)</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-42">
+                            <label for="p1-42">Document Organizational Challenges (performance gaps, vulnerabilities)</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-43">
+                            <label for="p1-43">Identify Opportunities (market opportunities, innovation possibilities)</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-44">
+                            <label for="p1-44">Identify Threats (competitive threats, disruption risks)</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-45">
+                            <label for="p1-45">List 5-10 critical strategic questions requiring answers</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">30-Day Stakeholder Update</div>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-46">
+                            <label for="p1-46">Prepare written brief (2-3 pages) summarizing insights</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-47">
+                            <label for="p1-47">Create presentation format for verbal delivery</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-48">
+                            <label for="p1-48">Deliver update to CEO</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-49">
+                            <label for="p1-49">Share insights with C-Suite peers</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-50">
+                            <label for="p1-50">Communicate findings to direct reports</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-box success">
+                    <div class="info-box-title">✓ Phase 1 Complete!</div>
+                    By completing these activities, you've built a foundation of understanding, relationships, and credibility. You're now ready to shift from listening to leading.
+                </div>
+            </div>
+            
+            <!-- PHASE 2 SECTION -->
+            <div id="phase2" class="section">
+                <div class="phase-banner">
+                    <h2>Phase 2: Days 31-60 - Strategic Vision & Positioning</h2>
+                    <div class="phase-goal">🎯 Goal: Translate discovery insights into strategic vision, establish leadership presence, identify quick wins, and begin actively shaping the organization.</div>
+                </div>
+                
+                <h3>Week 5: Strategic Vision Development</h3>
+                
+                <div class="card">
+                    <div class="card-header">Vision Framework Development</div>
+                    
+                    <h4>1. Aspirational Vision (3-5 years)</h4>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-1">
+                            <label for="p2-1">Define where you want Employee Benefits to be in 3-5 years</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-2">
+                            <label for="p2-2">Articulate what will make Hylant's Employee Benefits distinctive</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-3">
+                            <label for="p2-3">Define impact on clients, employees, and enterprise</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-4">
+                            <label for="p2-4">Identify your "moon shot" - ambitious goal that inspires</label>
+                        </div>
+                    </div>
+                    
+                    <h4>2. Strategic Priorities (1-2 years)</h4>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-5">
+                            <label for="p2-5">Identify 3-5 strategic priorities with specific outcomes</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-6">
+                            <label for="p2-6">Define strategic rationale for each priority</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-7">
+                            <label for="p2-7">Identify key initiatives and workstreams</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-8">
+                            <label for="p2-8">Estimate resources required for each priority</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-9">
+                            <label for="p2-9">Define success metrics and assign ownership</label>
+                        </div>
+                    </div>
+                    
+                    <h4>3. Vision Socialization Process</h4>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-10">
+                            <label for="p2-10"><strong>Round 1:</strong> Present to CEO for alignment and resource support</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-11">
+                            <label for="p2-11"><strong>Round 2:</strong> Share with 2-3 key C-Suite peers for input</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-12">
+                            <label for="p2-12"><strong>Round 3:</strong> Engage direct reports in co-creation and refinement</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">Strategic Vision Document</div>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-13">
+                            <label for="p2-13">Write executive summary</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-14">
+                            <label for="p2-14">Complete strategic assessment (situational analysis)</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-15">
+                            <label for="p2-15">Articulate vision and aspirations</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-16">
+                            <label for="p2-16">Detail strategic priorities and initiatives</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-17">
+                            <label for="p2-17">Define success metrics and milestones</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-18">
+                            <label for="p2-18">Outline organizational implications and resource requirements</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Week 6: Executive Presence & Leadership Brand</h3>
+                
+                <div class="card">
+                    <div class="card-header">Leadership Brand Definition</div>
+                    
+                    <h4>Values Articulation</h4>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-19">
+                            <label for="p2-19">Define 3-5 core leadership values</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-20">
+                            <label for="p2-20">Articulate how values guide decisions and behaviors</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-21">
+                            <label for="p2-21">Identify non-negotiable principles</label>
+                        </div>
+                    </div>
+                    
+                    <h4>Presidential Positioning Statement</h4>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-22">
+                            <label for="p2-22">Craft positioning combining credentials, value proposition, and vision</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-23">
+                            <label for="p2-23">Leverage your unique strengths: Innovation (Top 100), Customer Excellence (Service Heart), Talent Development (CTO), Board Experience</label>
+                        </div>
+                    </div>
+                    
+                    <div class="info-box">
+                        <div class="info-box-title">💼 Example Positioning Statement</div>
+                        "I drive profitable growth in Employee Benefits by combining deep industry expertise with innovation leadership, creating client solutions that solve critical talent challenges while building high-performing teams that deliver exceptional experiences."
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">Executive Presence Development</div>
+                    
+                    <h4>Gravitas (Executive Bearing)</h4>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-24">
+                            <label for="p2-24">Practice "strategic pause" - don't rush to fill silence</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-25">
+                            <label for="p2-25">Speak last in meetings (listen, synthesize, then contribute)</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-26">
+                            <label for="p2-26">Master the "executive summary" - lead with conclusions</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-27">
+                            <label for="p2-27">Develop point of view on major business issues (beyond Employee Benefits)</label>
+                        </div>
+                    </div>
+                    
+                    <h4>Communication Excellence</h4>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-28">
+                            <label for="p2-28">Practice "elevator test" - explain any topic in 60 seconds</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-29">
+                            <label for="p2-29">Record yourself presenting - review for filler words and clarity</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-30">
+                            <label for="p2-30">Use "headlines first" approach in all communication</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-31">
+                            <label for="p2-31">Prepare talking points for key topics before meetings</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Week 7: Quick Wins & Early Momentum</h3>
+                
+                <div class="info-box success">
+                    <div class="info-box-title">✓ Quick Win Selection Criteria</div>
+                    <ul>
+                        <li><strong>High Impact, Low Complexity</strong> - Meaningful results without excessive difficulty</li>
+                        <li><strong>Visible Success</strong> - Stakeholders notice and value the outcomes</li>
+                        <li><strong>Strategic Alignment</strong> - Advances longer-term priorities</li>
+                        <li><strong>Broad Support</strong> - Unlikely to generate significant resistance</li>
+                        <li><strong>Achievable in 60-90 Days</strong> - Results within transition window</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">Identify and Launch Quick Wins</div>
+                    
+                    <h4>Quick Win #1</h4>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-32">
+                            <label for="p2-32">Define specific initiative and strategic rationale</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-33">
+                            <label for="p2-33">Establish success metrics and timeline</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-34">
+                            <label for="p2-34">Assign owner and secure resources</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-35">
+                            <label for="p2-35">Communicate initiative broadly for visibility</label>
+                        </div>
+                    </div>
+                    
+                    <h4>Quick Win #2</h4>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-36">
+                            <label for="p2-36">Define specific initiative and strategic rationale</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-37">
+                            <label for="p2-37">Establish success metrics and timeline</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-38">
+                            <label for="p2-38">Assign owner and secure resources</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-39">
+                            <label for="p2-39">Communicate initiative broadly for visibility</label>
+                        </div>
+                    </div>
+                    
+                    <h4>Quick Win #3 (Optional)</h4>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-40">
+                            <label for="p2-40">Define specific initiative and strategic rationale</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-41">
+                            <label for="p2-41">Establish success metrics and timeline</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-42">
+                            <label for="p2-42">Assign owner and secure resources</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Week 8: Strategic Relationships & Influence Building</h3>
+                
+                <div class="card">
+                    <div class="card-header">C-Suite Relationship Deepening</div>
+                    
+                    <h4>Value Creation for Each Peer</h4>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-43">
+                            <label for="p2-43">Identify one way to create value for each C-Suite peer</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-44">
+                            <label for="p2-44">Provide client intelligence useful for their strategy</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-45">
+                            <label for="p2-45">Offer support for their initiatives with your resources</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-46">
+                            <label for="p2-46">Share best practices or learnings from your experience</label>
+                        </div>
+                    </div>
+                    
+                    <h4>Regular Touchpoints</h4>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-47">
+                            <label for="p2-47">Schedule monthly coffee/lunch with key C-Suite peers</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-48">
+                            <label for="p2-48">Establish check-ins on shared initiatives</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-49">
+                            <label for="p2-49">Build alliance network (natural allies, resource controllers, CEO influencers)</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">External Stakeholder Strategy</div>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-50">
+                            <label for="p2-50">Develop relationships with top 20 client decision-makers</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-51">
+                            <label for="p2-51">Join relevant industry associations and committees</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-52">
+                            <label for="p2-52">Build relationships with thought leaders and influencers</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-53">
+                            <label for="p2-53">Develop strategic partnerships with key vendors</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>60-Day Milestone: Vision Rollout</h3>
+                
+                <div class="card">
+                    <div class="card-header">Communication Cascade</div>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-54">
+                            <label for="p2-54"><strong>CEO & C-Suite:</strong> Private briefing with complete strategic vision</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-55">
+                            <label for="p2-55"><strong>Direct Reports:</strong> Full or half-day strategic planning session</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-56">
+                            <label for="p2-56"><strong>Extended Organization:</strong> Town hall presentation of vision</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-57">
+                            <label for="p2-57"><strong>Cross-Functional Partners:</strong> Share relevant strategy portions</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-58">
+                            <label for="p2-58"><strong>Key Clients:</strong> Executive updates on how strategy benefits them</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">Communication Materials</div>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-59">
+                            <label for="p2-59">Create detailed strategic plan (for leadership)</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-60">
+                            <label for="p2-60">Develop executive summary one-pager (broad distribution)</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-61">
+                            <label for="p2-61">Design presentation deck (visual storytelling)</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p2-62">
+                            <label for="p2-62">Prepare town hall talking points and FAQ</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-box success">
+                    <div class="info-box-title">✓ Phase 2 Complete!</div>
+                    You've transitioned from listening to leading. Your vision is established, quick wins are in motion, and your leadership brand is taking shape.
+                </div>
+            </div>
+            
+            <!-- PHASE 3 SECTION -->
+            <div id="phase3" class="section">
+                <div class="phase-banner">
+                    <h2>Phase 3: Days 61-90 - Execution & Influence</h2>
+                    <div class="phase-goal">🎯 Goal: Execute strategic initiatives, build cross-functional influence, demonstrate measurable impact, and solidify your position as an effective C-Suite leader.</div>
+                </div>
+                
+                <h3>Week 9: Strategic Initiative Launch</h3>
+                
+                <div class="card">
+                    <div class="card-header">Initiative Execution Framework</div>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-1">
+                            <label for="p3-1">Establish project governance structure for each strategic initiative</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-2">
+                            <label for="p3-2">Create implementation timelines with key milestones</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-3">
+                            <label for="p3-3">Assign clear ownership and accountability for each workstream</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-4">
+                            <label for="p3-4">Establish regular progress review cadence (weekly/bi-weekly)</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-5">
+                            <label for="p3-5">Define success metrics and tracking mechanisms</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">Team Operating Rhythm</div>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-6">
+                            <label for="p3-6"><strong>Weekly:</strong> Leadership team operational meetings (delegate chairmanship when possible)</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-7">
+                            <label for="p3-7"><strong>Bi-weekly:</strong> Strategic initiative reviews with owners</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-8">
+                            <label for="p3-8"><strong>Monthly:</strong> All-hands team meetings with strategic messaging</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-9">
+                            <label for="p3-9"><strong>Monthly:</strong> 1:1s with each direct report (ongoing)</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-10">
+                            <label for="p3-10">Create executive dashboard tracking key performance indicators</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Week 10: Organizational Transformation</h3>
+                
+                <div class="card">
+                    <div class="card-header">Team Structure Optimization</div>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-11">
+                            <label for="p3-11">Finalize any necessary organizational restructuring decisions</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-12">
+                            <label for="p3-12">Address performance issues identified during assessment</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-13">
+                            <label for="p3-13">Initiate talent acquisition for critical capability gaps</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-14">
+                            <label for="p3-14">Launch retention initiatives for high-value team members</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-15">
+                            <label for="p3-15">Implement talent development programs aligned with strategic needs</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">Delegation & Strategic Focus</div>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-16">
+                            <label for="p3-16">Identify operational tasks to delegate (create space for strategic work)</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-17">
+                            <label for="p3-17">Empower direct reports with clear decision-making authority</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-18">
+                            <label for="p3-18">Establish escalation criteria (what requires your involvement)</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-19">
+                            <label for="p3-19">Block calendar time for strategic thinking (minimum 4 hours weekly)</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Week 11: Cross-Functional Leadership</h3>
+                
+                <div class="card">
+                    <div class="card-header">Enterprise Value Creation</div>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-20">
+                            <label for="p3-20">Lead or contribute to enterprise-level initiative beyond Employee Benefits</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-21">
+                            <label for="p3-21">Collaborate with CFO on financial planning or analytics project</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-22">
+                            <label for="p3-22">Partner with CMO on market positioning or client acquisition strategy</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-23">
+                            <label for="p3-23">Work with CHRO on enterprise talent strategy informed by client insights</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-24">
+                            <label for="p3-24">Demonstrate value-add contribution in C-Suite meetings on non-Benefits topics</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">Influence Without Authority</div>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-25">
+                            <label for="p3-25">Build coalition for cross-functional initiative requiring multiple divisions</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-26">
+                            <label for="p3-26">Navigate organizational politics to advance strategic agenda</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-27">
+                            <label for="p3-27">Resolve interdepartmental conflict or friction point</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-28">
+                            <label for="p3-28">Facilitate collaboration between previously siloed functions</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Week 12: Client & Market Leadership</h3>
+                
+                <div class="card">
+                    <div class="card-header">Executive Client Engagement</div>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-29">
+                            <label for="p3-29">Conduct executive business reviews with top 10 clients</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-30">
+                            <label for="p3-30">Launch client advisory board or strategic feedback forum</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-31">
+                            <label for="p3-31">Position yourself as strategic advisor (not just vendor) to key clients</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-32">
+                            <label for="p3-32">Attend client strategic planning sessions or executive retreats</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">Industry Thought Leadership</div>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-33">
+                            <label for="p3-33">Submit speaking proposal for industry conference</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-34">
+                            <label for="p3-34">Publish thought leadership article or blog post</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-35">
+                            <label for="p3-35">Participate in industry panel or webinar as expert</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-36">
+                            <label for="p3-36">Build media relationships for potential PR opportunities</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-37">
+                            <label for="p3-37">Leverage your Top 100 Innovator recognition in market positioning</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>90-Day Milestone: Progress Assessment</h3>
+                
+                <div class="card">
+                    <div class="card-header">90-Day Reflection & Evaluation</div>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-38">
+                            <label for="p3-38">Complete 90-day self-assessment against success criteria</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-39">
+                            <label for="p3-39">Solicit feedback from CEO on transition progress</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-40">
+                            <label for="p3-40">Request 360-degree feedback from C-Suite peers</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-41">
+                            <label for="p3-41">Gather input from direct reports on leadership effectiveness</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-42">
+                            <label for="p3-42">Document quick win results and communicate successes</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">Course Corrections</div>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-43">
+                            <label for="p3-43">Identify what's working well to amplify and protect</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-44">
+                            <label for="p3-44">Identify what's not working to adjust or abandon</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-45">
+                            <label for="p3-45">Refine strategic priorities based on learnings</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-46">
+                            <label for="p3-46">Adjust leadership approach based on feedback</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p3-47">
+                            <label for="p3-47">Plan next 90 days with insights from first quarter</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-box success">
+                    <div class="info-box-title">✓ Phase 3 Complete!</div>
+                    You've moved from vision to execution. Strategic initiatives are underway, cross-functional relationships are established, and measurable impact is visible. Now it's time to optimize and scale.
+                </div>
+            </div>
+            
+            <!-- PHASE 4 SECTION -->
+            <div id="phase4" class="section">
+                <div class="phase-banner">
+                    <h2>Phase 4: Days 91-180 - Strategic Impact & Optimization</h2>
+                    <div class="phase-goal">🎯 Goal: Drive transformation, optimize organizational performance, establish long-term strategic positioning, and fully integrate as C-Suite executive.</div>
+                </div>
+                
+                <h3>Months 4-5: Strategic Planning & Long-Term Vision</h3>
+                
+                <div class="card">
+                    <div class="card-header">Strategic Planning Leadership</div>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-1">
+                            <label for="p4-1">Lead Employee Benefits 3-5 year strategic planning process</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-2">
+                            <label for="p4-2">Align division strategy with enterprise objectives</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-3">
+                            <label for="p4-3">Build business cases for major investments or market expansion</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-4">
+                            <label for="p4-4">Develop M&A perspective (acquire vs. build for capability gaps)</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-5">
+                            <label for="p4-5">Create multi-year financial projections and resource planning</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">Innovation & Market Differentiation</div>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-6">
+                            <label for="p4-6">Launch innovation lab or experimental program</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-7">
+                            <label for="p4-7">Establish partnerships with benefits technology innovators</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-8">
+                            <label for="p4-8">Pilot new service offerings or delivery models</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-9">
+                            <label for="p4-9">Leverage predictive analytics for client value creation (your strength from Huntington)</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-10">
+                            <label for="p4-10">Position Hylant as innovation leader in employee benefits space</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Months 4-5: Organizational Excellence</h3>
+                
+                <div class="card">
+                    <div class="card-header">Operational Optimization</div>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-11">
+                            <label for="p4-11">Conduct comprehensive operational review and identify efficiency opportunities</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-12">
+                            <label for="p4-12">Implement process improvements addressing major bottlenecks</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-13">
+                            <label for="p4-13">Upgrade technology infrastructure or systems (where needed)</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-14">
+                            <label for="p4-14">Establish benchmarking against industry best practices</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-15">
+                            <label for="p4-15">Create continuous improvement culture and mechanisms</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">Talent & Culture Development</div>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-16">
+                            <label for="p4-16">Implement comprehensive talent development program (leverage your CTO expertise)</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-17">
+                            <label for="p4-17">Create succession planning for critical roles</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-18">
+                            <label for="p4-18">Establish mentorship or leadership development initiatives</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-19">
+                            <label for="p4-19">Conduct engagement survey and act on findings</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-20">
+                            <label for="p4-20">Shape organizational culture aligned with strategic vision</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Months 5-6: Board & Executive Leadership</h3>
+                
+                <div class="card">
+                    <div class="card-header">Board-Level Engagement (if applicable)</div>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-21">
+                            <label for="p4-21">Prepare and deliver board presentation on Employee Benefits strategy</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-22">
+                            <label for="p4-22">Master board communication style: story-driven, visual, outcome-focused</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-23">
+                            <label for="p4-23">Build relationships with board members (informal interactions)</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-24">
+                            <label for="p4-24">Provide strategic insights that inform board-level decisions</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">C-Suite Leadership Maturity</div>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-25">
+                            <label for="p4-25">Demonstrate consistent strategic thinking at enterprise level</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-26">
+                            <label for="p4-26">Take on enterprise leadership role (committee chair, initiative sponsor)</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-27">
+                            <label for="p4-27">Mentor or coach other executives or high-potential leaders</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-28">
+                            <label for="p4-28">Participate in CEO succession planning or organizational design discussions</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-29">
+                            <label for="p4-29">Establish yourself as trusted advisor to CEO on broad business issues</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Months 5-6: External Positioning & Influence</h3>
+                
+                <div class="card">
+                    <div class="card-header">Thought Leadership Platform</div>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-30">
+                            <label for="p4-30">Deliver keynote or featured presentation at industry conference</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-31">
+                            <label for="p4-31">Publish multiple thought leadership pieces (articles, whitepapers)</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-32">
+                            <label for="p4-32">Secure media coverage or industry recognition</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-33">
+                            <label for="p4-33">Build substantial LinkedIn following and engagement</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-34">
+                            <label for="p4-34">Join or lead industry association committee or working group</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">Strategic Client Expansion</div>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-35">
+                            <label for="p4-35">Personally close or significantly influence major new client wins</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-36">
+                            <label for="p4-36">Expand relationships with existing clients (upsell/cross-sell)</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-37">
+                            <label for="p4-37">Host executive client roundtable or summit</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-38">
+                            <label for="p4-38">Generate client referrals through executive relationships</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Personal Leadership Development</h3>
+                
+                <div class="card">
+                    <div class="card-header">Executive Development Investments</div>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-39">
+                            <label for="p4-39">Engage executive coach for C-Suite transition (if not already)</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-40">
+                            <label for="p4-40">Participate in executive development program (Harvard, Wharton, CCL)</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-41">
+                            <label for="p4-41">Join peer advisory group (Vistage, YPO, Chief)</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-42">
+                            <label for="p4-42">Build "kitchen cabinet" of trusted advisors</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-43">
+                            <label for="p4-43">Identify development areas for Year 2 focus</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>180-Day Milestone: Transition Complete</h3>
+                
+                <div class="card">
+                    <div class="card-header">Comprehensive Assessment</div>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-44">
+                            <label for="p4-44">Complete 180-day evaluation against all success metrics</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-45">
+                            <label for="p4-45">Document measurable results from quick wins and strategic initiatives</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-46">
+                            <label for="p4-46">Conduct formal performance review with CEO</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-47">
+                            <label for="p4-47">Gather comprehensive 360-degree feedback</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-48">
+                            <label for="p4-48">Assess C-Suite peer relationships and influence level</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">Looking Forward: Year 1 and Beyond</div>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-49">
+                            <label for="p4-49">Develop Year 1 operating plan with quarterly objectives</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-50">
+                            <label for="p4-50">Set annual goals aligned with strategic vision</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-51">
+                            <label for="p4-51">Identify stretch goals and breakthrough opportunities</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p4-52">
+                            <label for="p4-52">Plan personal development focus areas for next year</label>
+                        </div>
+                        <div class="checklist-item">
+                            " id="pre1">
+                            <label for="pre1">What specific outcomes define success in Year 1?</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="pre2">
+                            <label for="pre2">What are the top 3 strategic priorities for Employee Benefits?</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="pre3">
+                            <label for="pre3">Where does Employee Benefits fit in the enterprise strategy?</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="pre4">
+                            <label for="pre4">What latitude do I have to restructure or transform the organization?</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="pre5">
+                            <label for="pre5">What are the untouchable constraints (budget, headcount, strategic direction)?</label>
+                        </div>
+                    </div>
+                    
+                    <h4>Organizational Structure Clarification</h4>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="pre6">
+                            <label for="pre6">Request complete organizational chart with reporting relationships</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="pre7">
+                            <label for="pre7">Identify who reports directly to you</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="pre8">
+                            <label for="pre8">Understand anticipated structural changes or reorganization plans</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="pre9">
+                            <label for="pre9">Clarify authority regarding hiring, firing, and reorganization</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="pre10">
+                            <label for="pre10">Understand matrix relationships or shared resources</label>
+                        </div>
+                    </div>
+                    
+                    <h4>C-Suite Dynamics</h4>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="pre11">
+                            <label for="pre11">Learn about C-Suite peers and key relationships</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="pre12">
+                            <label for="pre12">Understand executive team culture and operating rhythm</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="pre13">
+                            <label for="pre13">Clarify role in board interactions (observer, presenter, participant)</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="pre14">
+                            <label for="pre14">Identify cross-functional initiatives to lead or contribute to</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Stakeholder Intelligence Gathering</h3>
+                
+                <div class="card">
+                    <div class="card-header">Request Access to Key Documents</div>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="pre15">
+                            <label for="pre15">Last 3 years of strategic plans for Hylant and Employee Benefits division</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="pre16">
+                            <label for="pre16">Recent board presentations mentioning Employee Benefits</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="pre17">
+                            <label for="pre17">Financial performance data (P&L, revenue, margin trends)</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="pre18">
+                            <label for="pre18">Client satisfaction and retention metrics</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="pre19">
+                            <label for="pre19">Employee engagement data for your organization</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="pre20">
+                            <label for="pre20">Competitive analysis and market positioning studies</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="pre21">
+                            <label for="pre21">Any external audits, consultant reports, or assessments</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Personal Preparation</h3>
+                
+                <div class="card">
+                    <div class="card-header">Mental & Emotional Readiness</div>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="pre22">
+                            <label for="pre22">Reflect on leadership philosophy: What kind of President do I want to be?</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="pre23">
+                            <label for="pre23">Identify core values and non-negotiables as an executive</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="pre24">
+                            <label for="pre24">Acknowledge the psychological transition from peer to C-Suite</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="pre25">
+                            <label for="pre25">Process feelings about leaving former role or peer group behind</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="pre26">
+                            <label for="pre26">Prepare for potential loneliness that can accompany executive roles</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">Practical Preparation</div>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="pre27">
+                            <label for="pre27">Clear calendar for first 2-4 weeks (maximize listening time)</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="pre28">
+                            <label for="pre28">Set up executive coaching relationship</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="pre29">
+                            <label for="pre29">Review and update LinkedIn profile and professional presence</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="pre30">
+                            <label for="pre30">Arrange personal support systems for increased work demands</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="pre31">
+                            <label for="pre31">Optimize health/wellness routine (executive roles are marathons)</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-box">
+                    <div class="info-box-title">💡 Pro Tip: Communication Preparation</div>
+                    Draft your "leadership philosophy" one-pager and elevator pitch before Day 1. This helps clarify your thinking and ensures consistent messaging from the start. Include: your values, leadership approach, and vision for Employee Benefits.
+                </div>
+            </div>
+            
+            <!-- PHASE 1 SECTION -->
+            <div id="phase1" class="section">
+                <div class="phase-banner">
+                    <h2>Phase 1: Days 1-30 - Discovery & Foundation</h2>
+                    <div class="phase-goal">🎯 Goal: Establish credibility through listening, learn organizational dynamics, understand strategic context, and build relationship foundation. Resist pressure to make major decisions.</div>
+                </div>
+                
+                <div class="info-box warning">
+                    <div class="info-box-title">⚠️ Critical Mindset</div>
+                    Your primary job in the first 30 days is <strong>intelligent diagnosis</strong>, not decisive action. Even when pressure mounts to "make your mark," the wisest executives invest heavily in understanding before acting.
+                </div>
+                
+                <h3>Week 1: Organizational Structure & Initial Relationships</h3>
+                
+                <div class="card">
+                    <div class="card-header">Days 1-2: Organizational Structure Deep Dive</div>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-1">
+                            <label for="p1-1">Obtain complete organizational chart with names, titles, tenure, reporting relationships</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-2">
+                            <label for="p1-2">Request one-page profiles of direct reports (if HR maintains them)</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-3">
+                            <label for="p1-3">Understand budget, headcount, and resource allocation</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-4">
+                            <label for="p1-4">Review all open positions, pending hires, or organizational changes in flight</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="p1-5">
+                            <label for="p1-5">Identify matrix relationships, dotted-line reports, or shared service arrangements</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox
